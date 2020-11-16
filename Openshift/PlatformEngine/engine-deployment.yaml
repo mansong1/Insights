@@ -30,7 +30,7 @@ spec:
           - name: engine-config
             mountPath: "/usr/INSIGHTS_HOME/.InSights/server-config.json"
       volumes:
-        - name: config-volume
+        - name: engine-config
           configMap:
             name: engine-config
-      restartPolicy: Never
+      restartPolicy: Always
