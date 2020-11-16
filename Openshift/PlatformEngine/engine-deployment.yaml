@@ -1,18 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platformengine-deployment
+  name: engine-deployment
+  labels:
+    app: engine
 spec:
   selector:
     matchLabels:
-      app: platformengine
+      app: engine
   template:
     metadata:
       labels:
-        app: platformengine
+        app: engine
     spec:
       containers:
-      - name: platformengine
+      - name: engine
         image: mansong/platformengine:7.1
         resources:
           requests:
