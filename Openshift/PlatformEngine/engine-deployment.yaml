@@ -30,7 +30,8 @@ spec:
             value: "-Xmx1024M -Xms500M"
         volumeMounts:
           - name: engine-config
-            mountPath: "/usr/INSIGHTS_HOME/.InSights/server-config.json"
+            mountPath: /usr/INSIGHTS_HOME/.InSights/server-config.json
+            subPath: server-config.json
       volumes:
         - name: engine-config
           configMap:

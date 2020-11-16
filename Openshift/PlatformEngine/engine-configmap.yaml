@@ -40,16 +40,16 @@ data:
           "dbUserName": "grafana",
           "dbPassword": "grafana"
         },
-        "postgres": {
-          "userName" : "grafana",
-          "password" : "grafana",
-          "insightsDBUrl": "jdbc:postgresql://postgres-svc:5432/insight",
-          "grafanaDBUrl": "jdbc:postgresql://postgres-svc:5432/grafana"
+        "postgre": {
+          "userName" : "insights",
+          "password" : "insights",
+          "insightsDBUrl": "jdbc:postgresql://postgres-svc/insights",
+          "grafanaDBUrl": "jdbc:postgresql://postgres-svc/grafana"
         },
         "messageQueue": {
           "host": "rabbitmq-svc",
-          "user": "insight",
-          "password": "insight",
+          "user": "insights",
+          "password": "insights",
           "prefetchCount": 1000
         },
         "agentDetails": {
