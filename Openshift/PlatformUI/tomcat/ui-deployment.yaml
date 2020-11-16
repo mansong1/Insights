@@ -25,9 +25,6 @@ spec:
             cpu: "500m"
         ports:
           - containerPort: 8080
-        env:
-          - name: JAVA_OPTS
-            value: "-Xmx1024M -Xms500M"
         volumeMounts:
           - name: uiconfig
             mountPath: "/opt/apache-tomcat/webapps/app/config/uiconfig.json"
