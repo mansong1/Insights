@@ -1,0 +1,88 @@
+{
+   "vault": {
+	"getFromVault": false,
+	"secretEngine":"insights-kv",
+	"readToken":"vault_secret_token",
+	"vaultUrl":"http://Vault_Host:port/v1/"
+  },
+  "mqConfig": {
+    "user": "iSight",
+    "password": "iSight",
+    "host": "127.0.0.1",
+    "exchange": "iSight",
+    "agentControlXchg":"iAgent"
+  },
+  "subscribe": {
+    "config": "CI.TEAMCITY.config"
+  },
+  "publish": {
+    "data": "CI.TEAMCITY.DATA",
+    "health": "CI.TEAMCITY.HEALTH"
+  },
+  "communication": {
+    "type": "REST",
+    "sslVerify": true,
+    "responseType": "JSON"
+  },
+   "dynamicTemplate": {
+      "timeFieldMapping" : {
+		"startDate" : "%Y-%m-%d"
+  	  },
+	  "responseTemplate": {
+		"status": "status",
+		"buildType": {
+			"name": "buildTypeName",
+			"projectId": "projectId",
+			"projectName": "projectName",
+			"id": "buildTypeId"
+		},
+		"queuedDate": "queuedDate",
+		"triggered": {
+			"date": "triggeredDate",
+			"type": "triggeredType",
+			"user": {
+				"username": "ciAuthor",
+				"name": "ciAuthorName"
+			}
+		},
+		"startDate": "startDate",
+		"agent": {
+			"name": "agentName"
+		},
+		"state": "state",
+		"href": "buildUrl",
+		"finishDate": "finishDate",
+		"id": "buildId",
+		"revisions": {
+			"revision": [{
+				"vcs-root-instance": {
+					"name": "scmUrl"
+				}
+			}]
+		}
+	}
+  },
+ "agentId":"",
+"toolCategory" : "CI",
+"isDebugAllowed" : false,
+"enableValueArray": false,
+"enableDataValidation": true,
+"auth": "base64",
+"toolsTimeZone" : "Asia/Kolkata",
+"insightsTimeZone" : "Asia/Kolkata",
+"useResponseTemplate" : true,
+"runSchedule": 2,
+"userid": "userid",
+"passwd": "passwd",
+"baseUrl": "http://hostname",
+"timeStampField":"startDate",
+"timeStampFormat":"%Y%m%dT%H%M%S+0000",
+"isEpochTimeFormat" : false,
+"startFrom" : "2017-01-01 01:01:01",
+"agentSecretDetails": ["userid","passwd"],
+"loggingSetting" : {
+		"logLevel" : "WARN",
+		"maxBytes" : 5000000,
+		"backupCount" : 1000
+ } 
+}

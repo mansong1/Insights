@@ -1,0 +1,69 @@
+{
+	"vault": {
+		"getFromVault": false,
+		"secretEngine":"insights-kv",
+		"readToken":"vault_secret_token",
+		"vaultUrl":"http://Vault_Host:port/v1/"
+	},
+	"mqConfig": {
+		"user": "iSight",
+		"password": "iSight",
+		"host": "127.0.0.1",
+		"exchange": "iSight",
+		"agentControlXchg": "iAgent"
+	},
+	"subscribe": {
+		"config": "ARTIFACTMANAGEMENT.ARTIFACTORY.config"
+	},
+	"publish": {
+		"data": "ARTIFACTMANAGEMENT.ARTIFACTORY.DATA",
+		"health": "ARTIFACTMANAGEMENT.ARTIFACTORY.HEALTH"
+	},
+	"communication": {
+		"type": "REST",
+		"sslVerify": false,
+		"responseType": "JSON"
+	},
+	"dynamicTemplate": {
+		"timeFieldMapping": {
+			"startDate": "%Y-%m-%d"
+		},
+		"responseTemplate": {
+			"repo": "reponame",
+			"path": "repopath",
+			"created": "timecreated",
+			"createdBy": "createdBy",
+			"lastModified": "lastModified",
+			"modifiedBy": "modifiedBy",
+			"lastUpdated": "lastUpdated",
+			"uri": "uri",
+			"downloadUri": "downloadUri",
+			"size": "size",
+			"mimeType": "mimeType"
+		}
+	},
+	"agentId": "",
+	"auth": "base64",
+	"enableValueArray": false,
+	"enableDataValidation": true,
+	"useResponseTemplate": true,
+	"runSchedule": 5,
+	"userid": "admin",
+	"passwd": "password",
+	"toolCategory": "ARTIFACTMANAGEMENT",
+	"BaseUrl": "http://localhost:8081/artifactory/api/",
+	"timeStampField": "nex_lastupdated",
+	"timeStampFormat": "%Y%m%d%H%M%S",
+	"isEpochTimeFormat": false,
+	"startFrom": "2019-07-01 00:00:00",
+	"toolsTimeZone": "GMT",
+	"insightsTimeZone": "Asia/Kolkata",
+	"isDebugAllowed": false,
+	"agentSecretDetails": ["userid","passwd"],
+	"FirstEndPoint": "http://localhost:8081/artifactory/api/storage/",
+	"loggingSetting": {
+		"logLevel": "WARN",
+		"maxBytes": 5000000,
+		"backupCount": 1000
+	}
+}

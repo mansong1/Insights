@@ -1,0 +1,64 @@
+{
+	  "vault": {
+		"getFromVault": false,
+		"secretEngine":"insights-kv",
+		"readToken":"vault_secret_token",
+		"vaultUrl":"http://Vault_Host:port/v1/"
+	  },
+	  "mqConfig": {
+	    "user": "iSight",
+	    "password": "iSight",
+	    "host": "127.0.0.1",
+	    "exchange": "iSight",
+	    "agentControlXchg": "iAgent"
+	  },
+	  "subscribe": {
+	    "config": "CI.BAMBOO.config"
+	  },
+	  "publish": {
+	    "data": "CI.BAMBOO.DATA",
+	    "health": "CI.BAMBOO.HEALTH"
+	  },
+	  "communication": {
+	    "type": "REST",
+	    "sslVerify": false
+	  },
+	  "dynamicTemplate": {
+		  "responseTemplate": {
+				"id" : "id",
+				"buildStartedTime" : "buildStartedTime" ,
+				"buildCompletedTime": "buildCompletedTime",
+				"buildResultKey": "buildResultKey",
+				"projectName": "projectName",
+				"planName" : "planName" ,
+				"lifeCycleState" : "lifeCycleState",
+				"buildDuration" : "buildDuration" ,
+				"successful":"successful",
+				"buildReason":"buildReason"
+		},
+		"timeFieldMapping" : {
+		"buildCompletedTime": "%Y-%m-%dT%H:%M:%S.%f-%j:%U",
+		"buildStartedTime": "%Y-%m-%dT%H:%M:%S.%f-%j:%U"
+		} 
+	},
+	"agentId" : "",
+	"enableAllBranches":false,
+	"toolCategory": "CI",
+	"auth": "base64",
+	"userid": "userid",
+	"passwd": "password",
+	"toolsTimeZone" : "Asia/Kolkata",
+	"insightsTimeZone" : "Asia/Kolkata",
+	"useResponseTemplate" : true,
+	"runSchedule": 30,
+	"baseUrl": "baseUrl",
+	"timeStampFormat":"%Y-%m-%dT%H:%M:%S.%f-%j:%U",
+	"timeStampField":"buildStartedTime",
+	"isEpochTimeFormat" : true,
+	"agentSecretDetails": ["userid","passwd"],
+	"startFrom" : "2016-12-07 15:46:33",
+		"loggingSetting" : {
+			"logLevel" : "WARN"
+		},
+		"isDebugAllowed" : true
+}

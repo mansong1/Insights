@@ -1,0 +1,56 @@
+{
+  "vault": {
+    "getFromVault": false,
+    "secretEngine":"insights-kv",
+    "readToken":"vault_secret_token",
+    "vaultUrl":"http://Vault_Host:port/v1/"
+  },
+ "mqConfig": {
+    "exchange": "iSight",
+    "host": "127.0.0.1",
+    "password": "iSight",
+    "user": "iSight",
+	"agentControlXchg":"iAgent"
+  },
+  "publish": {
+    "data": "CODEQUALITY.SONAR.DATA",
+    "health": "CODEQUALITY.SONAR.HEALTH"
+  },
+  "subscribe": {
+    "config": "CODEQUALITY.SONAR.config"
+  },
+  "communication": {
+    "type": "REST",
+    "sslVerify": true,
+    "responseType": "JSON"
+  },
+  "dynamicTemplate" : {
+  		"timeFieldMapping" : {
+			"startDate" : "%Y-%m-%d"
+  		},
+  		"metrics" : ["alert_status", "complexity", "coverage", "new_coverage"]
+  },
+  "agentId" : "",
+  "toolCategory" : "CODEQUALITY",
+  "toolName": "SONAR",
+  "runSchedule": 30,
+  "enableDataValidation": true,
+  "timeStampField": "metricdate",
+  "userid":"admin",
+  "passwd":"admin",
+  "timeMachineapi": "no",
+  "timeStampFormat": "%Y-%m-%dT%H:%M:%S",
+  "startFrom": "2019-01-01T00:01:01",
+  "toolsTimeZone": "Asia/Kolkata",
+  "useResponseTemplate": false,
+  "isDebugAllowed": false,
+  "enableValueArray": false,
+  "isEpochTimeFormat" : false,
+  "baseUrl": "http://127.0.0.1:9000/sonar/",
+  "agentSecretDetails": ["userid","passwd"],
+  "loggingSetting": {
+    	"logLevel": "WARN",
+		"maxBytes" : 5000000,
+		"backupCount" : 1000
+  }
+}
