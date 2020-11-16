@@ -57,6 +57,18 @@ data:
                "agentExchange" : "iAgent",
                "agentPkgQueue" : "INSIGHTS.AGENTS.PACKAGE"
         },
+        "sparkConfigurations": {
+          "appName" : "inSights",
+          "master" : "local[*]",
+          "sparkExecutorMemory" : "8g",
+          "sparkElasticSearchHost": "spark-svc",
+          "sparkElasticSearchPort": "9200",
+          "sparkElasticSearchConfigIndex": "",
+          "sparkElasticSearchResultIndex": "",
+          "kpiSize": "30",
+          "sparkResultSince": 5,
+          "sparkMasterExecutionEndPoint":"sparkexecutor-svc"
+        },
         "disableAuth": false,
         "enableNativeUsers": true,
         "insightsTimeZone": "America/Chicago",
