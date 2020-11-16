@@ -26,7 +26,12 @@ RUN unzip PlatformUI3.zip && rm -rf PlatformUI3.zip && \
 
 WORKDIR /opt/apache-tomcat
 RUN cp -r /opt/app /opt/apache-tomcat/webapps/ && cp /opt/PlatformService.war /opt/apache-tomcat/webapps/ && \
-    rm -rf /opt/PlatformService.war /opt/app && chmod -R 755 /opt/apache-tomcat/
+    rm -rf /opt/PlatformService.war /opt/app
+
+WORKDIR /root
+COPY fix-permissions.sh /root
+RUN /root/fix-permissions.sh /opt/apache-tomcat/
+
 
 WORKDIR /
 CMD ["/opt/apache-tomcat/bin/startup.sh"]

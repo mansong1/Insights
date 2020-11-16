@@ -17,8 +17,11 @@ ENV INSIGHTS_HOME /usr/INSIGHTS_HOME
 
 WORKDIR /opt/insightsWebhook/
 COPY PlatformInsightsWebHook.jar /opt/insightsWebhook/PlatformInsightsWebHook.jar
-RUN chmod -R 755 /opt/insightsWebhook/&& \
-    chmod -R 777 /usr/INSIGHTS_HOME
+
+WORKDIR /root
+COPY fix-permissions.sh /root
+RUN /root/fix-permissions.sh /opt/insightsWebhook/ && \
+    /root/fix-permissions.sh /usr/INSIGHTS_HOME
 
 WORKDIR /
 ENTRYPOINT [ "/usr/bin/java", "-jar", "/opt/insightsWebhook/PlatformInsightsWebHook.jar"]
