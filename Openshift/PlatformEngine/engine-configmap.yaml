@@ -4,29 +4,64 @@ metadata:
   name: engine-config
 data:
   server-config.json: |
-    {
-        "maxThreadCount": 10,
-        "trackerConfigs": [{
-                "url": "https://example1.com/",
-                "username": "username",
-                "password": "password",
-                "defaultLimit": 1
-            },
-            {
-                "url": "https://example2.com/",
-                "username": "username",
-                "password": "password",
-                "defaultLimit": 1
-            }
-        ],
-        "repoConfigs": [{
-            "url": "https://github.com/",
-            "username": "username",
-            "password": "password",
-            "type": "GITHUB"
-        }],
-        "streamConfigs": [{
-            "url": "https://example.com/master.json",
-            "type": "JSON"
-        }]
-    }
+      {
+        "endpointData": {
+          "elasticSearchEndpoint": "elasticsearch-svc"
+        },
+        "ldapConfiguration": {
+              "ldapUrl" : "",
+          "bindDN": "",
+          "bindPassword": "",
+          "searchBaseDN": "",
+          "searchFilter": "",
+          "ldapAttributes": {
+            "name": "cn",
+            "surname": "sn",
+            "memberOf": "memberOf",
+            "email": "mail",
+            "username": "uid"
+          }
+        },
+        "graph": {
+          "endpoint": "neo4j-svc",
+          "authToken": "",
+          "userName" : "neo4j",
+          "password" : "neo4j"
+        },
+        "grafana": {
+          "grafanaEndpoint": "grafana-svc",
+          "grafanaExternalEndPoint": "",
+          "grafanaDBEndpoint": "jdbc:postgresql://postgres-svc/grafana",
+          "adminUserName": "admin",
+          "adminUserPassword": "admin",
+          "dbUserName": "grafana",
+          "dbPassword": "grafana"
+        },
+        "postgres": {
+              "userName" : "grafana",
+              "password" : "C0gnizant@1",
+              "insightsDBUrl": "jdbc:postgresql://localhost:5432/insight",
+              "grafanaDBUrl": "jdbc:postgresql://localhost:5432/grafana"
+        },
+        "messageQueue": {
+          "host": "rabbitmq-svc",
+          "user": "insight",
+          "password": "insight",
+          "prefetchCount": 1000
+        },
+        "agentDetails": {
+               "isOnlineRegistration" : false,
+               "docrootUrl":"https://platform.cogdevops.com/insights_install/release",
+               "offlineAgentPath" : "/opt/Insights/Agents/download/agents",
+               "unzipPath":"/opt/Insights/Agents/download",
+               "agentExchange" : "iAgent",
+               "agentPkgQueue" : "INSIGHTS.AGENTS.PACKAGE"
+        },
+        "disableAuth": false,
+        "enableNativeUsers": true,
+        "insightsTimeZone": "America/Chicago",
+        "refreshTime": "Jan 22, 2017 5:04:25 PM",
+         "trustedHosts": [
+          "localhost"
+        ]
+      }
