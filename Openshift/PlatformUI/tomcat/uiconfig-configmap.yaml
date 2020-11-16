@@ -4,13 +4,15 @@ metadata:
   name: uiconfig
 data:
   uiConfig.json: |
-    {
+    {   
+        "grafanaHost": "grafana-svc"
+        "serviceHost": "engine-svc"
         "showInsightsTab": false,
         "showOptionsPanel": false,
         "showBusinessMapping": true,
         "agentsOsList": {
-                "Windows": "windows",
-                "RHEL/CentOS": "linux",
-                "Ubuntu":"Ubuntu"
+          "Windows": "windows",
+          "RHEL/CentOS": "linux",
+          "Ubuntu":"Ubuntu"
         }
     }
