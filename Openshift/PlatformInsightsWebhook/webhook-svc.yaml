@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webhook-svc
+  labels:
+    app: webhook
+spec:
+  type: ClusterIP
+  selector:
+    app: webhook
+  ports:
+  - port: 8981
+    targetPort: 8981
