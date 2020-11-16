@@ -4,64 +4,64 @@ metadata:
   name: engine-config
 data:
   server-config.json: |
-      {
-        "endpointData": {
-          "elasticSearchEndpoint": "elasticsearch-svc"
-        },
-        "ldapConfiguration": {
-              "ldapUrl" : "",
-          "bindDN": "",
-          "bindPassword": "",
-          "searchBaseDN": "",
-          "searchFilter": "",
-          "ldapAttributes": {
-            "name": "cn",
-            "surname": "sn",
-            "memberOf": "memberOf",
-            "email": "mail",
-            "username": "uid"
-          }
-        },
-        "graph": {
-          "endpoint": "neo4j-svc",
-          "authToken": "",
-          "userName" : "neo4j",
-          "password" : "neo4j"
-        },
-        "grafana": {
-          "grafanaEndpoint": "grafana-svc",
-          "grafanaExternalEndPoint": "",
-          "grafanaDBEndpoint": "jdbc:postgresql://postgres-svc/grafana",
-          "adminUserName": "admin",
-          "adminUserPassword": "admin",
-          "dbUserName": "grafana",
-          "dbPassword": "grafana"
-        },
-        "postgres": {
-              "userName" : "grafana",
-              "password" : "grafana",
-              "insightsDBUrl": "jdbc:postgresql://postgres-svc:5432/insight",
-              "grafanaDBUrl": "jdbc:postgresql://postgres-svc:5432/grafana"
-        },
-        "messageQueue": {
-          "host": "rabbitmq-svc",
-          "user": "insight",
-          "password": "insight",
-          "prefetchCount": 1000
-        },
-        "agentDetails": {
-               "isOnlineRegistration" : false,
-               "docrootUrl":"https://platform.cogdevops.com/insights_install/release",
-               "offlineAgentPath" : "/opt/Insights/Agents/download/agents",
-               "unzipPath":"/opt/Insights/Agents/download",
-               "agentExchange" : "iAgent",
-               "agentPkgQueue" : "INSIGHTS.AGENTS.PACKAGE"
-        },
-        "disableAuth": false,
-        "enableNativeUsers": true,
-        "insightsTimeZone": "America/Chicago",
-        "refreshTime": "Jan 22, 2017 5:04:25 PM",
-         "trustedHosts": [
-          "localhost"
-        ]
-      }
+    {
+      "endpointData": {
+        "elasticSearchEndpoint": "elasticsearch-svc"
+      },
+      "ldapConfiguration": {
+            "ldapUrl" : "",
+        "bindDN": "",
+        "bindPassword": "",
+        "searchBaseDN": "",
+        "searchFilter": "",
+        "ldapAttributes": {
+          "name": "cn",
+          "surname": "sn",
+          "memberOf": "memberOf",
+          "email": "mail",
+          "username": "uid"
+        }
+      },
+      "graph": {
+        "endpoint": "neo4j-svc",
+        "authToken": "",
+        "userName" : "neo4j",
+        "password" : "neo4j"
+      },
+      "grafana": {
+        "grafanaEndpoint": "grafana-svc",
+        "grafanaExternalEndPoint": "grafana-svc",
+        "grafanaDBEndpoint": "jdbc:postgresql://postgres-svc/grafana",
+        "adminUserName": "admin",
+        "adminUserPassword": "admin",
+        "dbUserName": "grafana",
+        "dbPassword": "grafana"
+      },
+      "postgres": {
+            "userName" : "insights",
+            "password" : "insights",
+            "insightsDBUrl": "jdbc:postgresql://postgres-svc:5432/insight",
+            "grafanaDBUrl": "jdbc:postgresql://postgres-svc:5432/grafana"
+      },
+      "messageQueue": {
+        "host": "rabbitmq-svc",
+        "user": "insights",
+        "password": "insights",
+        "prefetchCount": 1000
+      },
+      "agentDetails": {
+        "isOnlineRegistration" : false,
+        "docrootUrl":"https://platform.cogdevops.com/insights_install/release",
+        "offlineAgentPath" : "/opt/Insights/Agents/download/agents",
+        "unzipPath":"/opt/Insights/Agents/download",
+        "agentExchange" : "iAgent",
+        "agentPkgQueue" : "INSIGHTS.AGENTS.PACKAGE"
+      },
+      "disableAuth": false,
+      "enableNativeUsers": true,
+      "insightsTimeZone": "",
+      "refreshTime": "",
+        "trustedHosts": [
+        "localhost"
+      ]
+    }
