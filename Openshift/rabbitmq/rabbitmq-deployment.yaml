@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rabbitmq
+  name: rabbitmq
+  namespace: insights
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbitmq
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+      - env:
+        - name: RABBITMQ_DEFAULT_PASS
+          value: insights
+        - name: RABBITMQ_DEFAULT_USER
+          value: insights
+        - name: RABBITMQ_DEFAULT_VHOST
+          value: insights
+        image: rabbitmq:latest
+        imagePullPolicy: "Always"
+        name: rabbitmq
+        ports:
+          - containerPort: 5672
+        resources: {}
+      restartPolicy: Always
