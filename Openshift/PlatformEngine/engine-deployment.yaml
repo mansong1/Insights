@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: engine-deployment
+  namespace: insights
   labels:
     app: engine
 spec:
@@ -16,6 +17,7 @@ spec:
       containers:
       - name: engine
         image: mansong/platformengine:7.1
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "512Mi"

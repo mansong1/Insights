@@ -2,6 +2,8 @@ FROM centos:centos7
 LABEL maintainer="Martin Ansong"
 LABEL name="PlatformEngine"
 
+USER root
+
 WORKDIR /opt
 
 # /dev/urandom is used as random source, which is prefectly safe
@@ -19,8 +21,11 @@ ENV INSIGHTS_HOME /usr/INSIGHTS_HOME
 
 WORKDIR /opt/insightsengine/
 COPY PlatformEngine.jar /opt/insightsengine/PlatformEngine.jar
-RUN chmod -R 755 /opt/insightsengine/ && \
-    chmod -R 777 /usr/INSIGHTS_HOME
+
+WORKDIR /root
+COPY fix-permissions.sh /root
+RUN /root/fix-permissions.sh /opt/insightsengine/ && \
+    /root/fix-permissions.sh /usr/INSIGHTS_HOME
 
 WORKDIR /
 ENTRYPOINT [ "/usr/bin/java", "-jar", "/opt/insightsengine/PlatformEngine.jar"]
