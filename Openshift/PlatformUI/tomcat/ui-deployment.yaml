@@ -32,4 +32,4 @@ spec:
         - name: config-volume
           configMap:
             name: uiconfig
-      restartPolicy: Never
+      restartPolicy: Always

@@ -28,4 +28,4 @@ spec:
         env:
           - name: JAVA_OPTS
             value: "-Xmx1024M -Xms500M"
-      restartPolicy: Never
+      restartPolicy: Always
