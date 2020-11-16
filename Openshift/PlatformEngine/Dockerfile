@@ -19,7 +19,8 @@ ENV INSIGHTS_HOME /usr/INSIGHTS_HOME
 
 WORKDIR /opt/insightsengine/
 COPY PlatformEngine.jar /opt/insightsengine/PlatformEngine.jar
-RUN chmod -R 755 /opt/insightsengine/
+RUN chmod -R 755 /opt/insightsengine/ && \
+    chmod -R 777 /usr/INSIGHTS_HOME
 
 WORKDIR /
 ENTRYPOINT [ "/usr/bin/java", "-jar", "/opt/insightsengine/PlatformEngine.jar"]
