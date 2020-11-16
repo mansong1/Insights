@@ -16,8 +16,19 @@ spec:
         image: mansong/platformengine:7.1
         resources:
           requests:
-            memory: "32Mi"
-            cpu: "100m"
+            memory: "512Mi"
+            cpu: "250m"
           limits:
-            memory: "128Mi"
+            memory: "1Gi"
             cpu: "500m"
+        env:
+          - name: JAVA_OPTS
+            value: "-Xmx1024M -Xms500M"
+        volumeMounts:
+          - name: engine-config
+            mountPath: "/usr/INSIGHTS_HOME/.InSights/server-config.json"
+      volumes:
+        - name: config-volume
+          configMap:
+            name: engine-config
+      restartPolicy: Never
