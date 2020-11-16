@@ -39,9 +39,9 @@ data:
         },
         "postgres": {
               "userName" : "grafana",
-              "password" : "C0gnizant@1",
-              "insightsDBUrl": "jdbc:postgresql://localhost:5432/insight",
-              "grafanaDBUrl": "jdbc:postgresql://localhost:5432/grafana"
+              "password" : "grafana",
+              "insightsDBUrl": "jdbc:postgresql://postgres-svc:5432/insight",
+              "grafanaDBUrl": "jdbc:postgresql://postgres-svc:5432/grafana"
         },
         "messageQueue": {
           "host": "rabbitmq-svc",
