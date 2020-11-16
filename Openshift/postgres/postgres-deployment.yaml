@@ -19,7 +19,7 @@ spec:
       containers:
       - env:
         - name: POSTGRESQL_DATABASE
-          value: insights
+          value: grafana
         - name: POSTGRESQL_PASSWORD
           value: insights
         - name: POSTGRESQL_USER
