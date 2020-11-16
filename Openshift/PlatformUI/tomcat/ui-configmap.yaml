@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: uiconfig
+  namespace: insights
 data:
   uiConfig.json: |
     {   
