@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui-deployment
+  labels:
+    app: ui
+spec:
+  selector:
+    matchLabels:
+      app: ui
+  template:
+    metadata:
+      labels:
+        app: ui
+    spec:
+      containers:
+      - name: ui
+        image: mansong/platformui:7.1
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        ports:
+          - containerPort: 8080
+        env:
+          - name: JAVA_OPTS
+            value: "-Xmx1024M -Xms500M"
+        volumeMounts:
+          - name: uiconfig
+            mountPath: "/opt/apache-tomcat/webapps/app/config/uiconfig.json"
+      volumes:
+        - name: config-volume
+          configMap:
+            name: uiconfig
+      restartPolicy: Never

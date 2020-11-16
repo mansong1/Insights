@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: uiconfig
+data:
+  uiConfig.json: |
+    {   
+        "grafanaHost": "grafana-svc"
+        "serviceHost": "insights-svc"
+        "showInsightsTab": false,
+        "showOptionsPanel": false,
+        "showBusinessMapping": true,
+        "agentsOsList": {
+          "Windows": "windows",
+          "RHEL/CentOS": "linux",
+          "Ubuntu":"Ubuntu"
+        }
+    }
